@@ -1,0 +1,459 @@
+@charset "UTF-8";
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.spinner {
+	width: 30px;
+	height: 30px;
+	margin-top: 450px;
+  margin-left: 720px;
+	border: 5px solid #333;
+	border-right: 5px solid transparent;
+	border-radius: 50%;
+	animation: rotate 1s linear infinite;
+  }
+#loading {
+	width: 100vw;
+	height: 100vh;
+	transition: all 1.3s;
+	background-color: rgb(255, 255, 255);   
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+ }
+@keyframes rotate {
+	100% {
+	  transform: rotate(360deg);
+	}
+}
+.loaded {
+	opacity: 0;
+	visibility: hidden;
+  }
+
+/*上に上がる動き*/
+#header{
+    background-color: rgb(11, 0, 28);
+    position: relative;
+    z-index: 9999;
+}
+#header.UpMove{
+    animation: UpAnime 0.5s forwards;
+  }
+  
+  @keyframes UpAnime{
+    from {
+      opacity: 1;
+    transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+    transform: translateY(-100px);
+    }
+}
+  
+  /*下に下がる動き*/
+  
+#header.DownMove{
+    animation: DownAnime 0.5s forwards;
+  }
+@keyframes DownAnime{
+    from {
+      opacity: 0;
+    transform: translateY(-100px);
+    }
+    to {
+      opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1024px;
+    height: 100px;
+    padding: 0 0.8em;
+    margin: 0 auto;
+    font-size: 1.2em;
+}
+  
+.logo {
+    color: white;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+}
+
+.logo:hover {
+    color: rgb(152, 29, 223);
+}
+
+#animation {
+    position: relative;
+    height: 30000px;
+}
+
+#box_tree{
+    position: fixed;
+    width: 100%;
+    top: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -10;
+}
+
+#box_fixed{
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  visibility: hidden;
+  transition: 3s;
+  opacity: 0;
+  transform: translateX(1200px);
+  z-index: 100;
+}
+
+#box_fixed.on{
+  visibility: inherit;
+  opacity: 1;
+  z-index: 100;
+  transform: translateX(570px);
+}
+
+#box_apple{
+  position: fixed;
+  bottom: 240px;
+  left: 690px;
+  height: 8vh;
+  visibility: hidden;
+  transition: 5s;
+  opacity: 0;
+  z-index: 10;
+}
+
+#box_apple.on_apple{
+  visibility: inherit;
+  opacity: 1;
+  z-index: 10;
+}
+
+#box_apple2{
+  position: fixed;
+  bottom: 240px;
+  left: 690px;
+  height: 8vh;
+  visibility: hidden;
+  transition: 5s;
+  opacity: 0;
+  z-index: 20;
+}
+
+#box_apple2.on_apple{
+  visibility: inherit;
+  opacity: 1;
+  z-index: 20;
+}
+
+#box_apple3{
+  position: fixed;
+  bottom: 240px;
+  left: 690px;
+  height: 8vh;
+  visibility: hidden;
+  transition: 5s;
+  opacity: 0;
+  z-index: 30;
+  cursor: pointer;
+}
+
+#box_apple3.on_apple{
+  visibility: inherit;
+  opacity: 1;
+  z-index: 30;
+}
+
+#box_apple3.move_apple{
+  visibility: inherit;
+  transform-origin: center top;
+  animation: move_apple 4s linear infinite;
+}
+
+@keyframes move_apple {
+0% , 100%{
+    transform: rotate(10deg);
+}
+50%{
+    transform: rotate(-10deg);
+}
+}
+
+#box_apple3.fall_apple{
+  animation: fall_apple 1s forwards;
+  
+}
+
+@keyframes fall_apple {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: translate(70px,250px) rotate(75deg);
+  }
+}
+
+#snowwhite{
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  visibility: hidden;
+  transition: 3s;
+  opacity: 0;
+  transform: translateX(-1200px);
+  z-index: 100;
+}
+
+#snowwhite.on{
+  visibility: inherit;
+  opacity: 1;
+  z-index: 100;
+  transform: translateX(100px);
+}
+
+#snowwhite_mini{
+  position: fixed;
+  bottom: 10px;
+  left: 480px;
+  height: 30vh;
+  visibility: hidden;
+  transition: 3s;
+  opacity: 0;
+  z-index: 40;
+}
+
+#snowwhite_mini.on{
+  visibility: inherit;
+  opacity: 1;
+  z-index: 40;
+}
+
+#wakeup{
+  min-height: 100vh;
+  z-index: 500;
+}
+
+#blink{
+  position: fixed;
+  visibility: hidden;
+  z-index: 500;
+}
+
+#blink.on{
+  visibility: inherit;
+  z-index: 500;
+  top: 10px;
+}
+
+.eye {
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: blink_anime 4s infinite;
+  opacity: 0;
+  z-index: 500;
+}
+
+@keyframes blink_anime {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 1;
+  }
+}
+
+#original {
+  height: 100vh;
+  z-index: 500;
+}
+
+#eye1 {
+  height: 100vh;
+  z-index: 500;
+}
+
+#eye2 {
+  animation-delay: 5s;
+  height: 100vh;
+  z-index: 500;
+}
+
+#snowwhite_sleep{
+  position: fixed;
+  height: 100vh;
+  top: 10px;
+  visibility: hidden;
+  transition: 3s;
+  opacity: 0;
+  z-index: 200;
+  transform: translateY(1200px);
+}
+
+#snowwhite_sleep.on{
+  visibility: inherit;
+  opacity: 1;
+  z-index: 200;
+  transform: translateY(1px);
+  background-color: white;
+}
+
+#snowwhite_wakeup{
+  position: fixed;
+  height: 100vh;
+  top: 10px;
+  visibility: hidden;
+  transition: 3s;
+  opacity: 0;
+  z-index: 200;
+}
+
+#snowwhite_wakeup.on{
+  height: 100vh;
+  visibility: inherit;
+  opacity: 1;
+  z-index: 200;
+  transform: translateY(1px);
+  background-color: white;
+}
+
+#black{
+  position: fixed;
+  min-width: 100vh;
+  top: 10px;
+  visibility: hidden;
+  transition: 2s;
+  opacity: 0;
+  z-index: 100;
+  transform: translateY(1200px);
+}
+
+#black.on{
+  min-width: 100vh;
+  visibility: inherit;
+  opacity: 1;
+  z-index: 100;
+  transform: translateY(1px);
+  background-color: black;
+}
+
+#white{
+  position: fixed;
+  min-width: 100vh;
+  top: 10px;
+  visibility: hidden;
+  transition: 2s;
+  opacity: 0;
+  z-index: 150;
+  transform: translateY(1200px);
+}
+
+#white.on{
+  min-width: 100vh;
+  visibility: inherit;
+  opacity: 1;
+  z-index: 150;
+  transform: translateY(1px);
+  background-color: white;
+}
+
+#eat_apple{
+  position: fixed;
+  min-height: 60vh;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 150;
+  left: 500px;
+}
+
+#eat_apple.on{
+  visibility: inherit;
+  opacity: 1;
+  z-index: 150;
+  animation: eat_apple_fall 15s forwards;
+}
+
+@keyframes eat_apple_fall {
+  0% {
+    transform: translate(0,-1000px) rotate(0);
+  }
+  100% {
+    transform: translate(0px,2000px) rotate(300deg);
+  }
+}
+
+@keyframes pulseMotion {
+  0% {
+    transform: translate(-50%, -50%) scale(1, 1);
+    background-color: rgba(217, 52, 52, 0.13)
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(6.5, 6.5);
+    background-color: rgba(247, 229, 229, 0.113)
+  }
+}
+
+#point-move {
+  visibility: hidden;
+  position: fixed;
+  display: flex;
+  margin-top: 270px;
+  margin-left: 1010px;
+  z-index: 1000;
+}
+
+#point-move.on {
+  visibility: inherit;
+  position: fixed;
+  display: flex;
+  margin-top: 270px;
+  margin-left: 1010px;
+  z-index: 1000;
+}
+
+.point {
+  display: block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 0 20px;
+  border-radius: 50%;
+  transition: background-color cubic-bezier(0.215, 0.61, 0.355, 1) .20s;
+  cursor: url(./images/kiss-rip.cur), pointer;
+}
+
+.point:focus {
+  outline: none;
+}
+
+.point:after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: opacity linear 0.4s;
+  content: '';
+}
+
+.point.-active:after {
+  animation: pulseMotion 1.8s linear infinite;
+}
